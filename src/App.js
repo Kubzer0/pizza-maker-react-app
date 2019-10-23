@@ -8,16 +8,27 @@ class App extends React.Component {
     meatPizzaComponents: ['bacon', 'beef', 'chicken', 'pepperoni'],
     cheesyPizzaComponents: ['mozzarella', 'vegan cheese', 'cheddar'],
     veggiePizzaComponents: ['tomatoe', 'broccolli', 'basil'],
-    isMeatCheckboxChecked: false
+    isMeatCheckboxChecked: false,
+    isCheeseCheckboxChecked: false
   }
 
-  updateMeatCheckboxChecked() {
+  updateMeatCheckboxChecked= ()=> {
     this.setState((oldState) => {
       return {
         isMeatCheckboxChecked: !oldState.isMeatCheckboxChecked,
       }
     })
   }
+
+  updateCheeseCheckboxChecked= ()=> {
+    this.setState((oldState) => {
+      return {
+        isCheeseCheckboxChecked: !oldState.isCheeseCheckboxChecked,
+      }
+    })
+  }
+
+  
 
   toggleDrawerState = () => this.setState({ isDrawerOpen: !this.state.isDrawerOpen })
 
@@ -29,6 +40,8 @@ class App extends React.Component {
           toggleDrawerState={this.toggleDrawerState}
           isMeatCheckboxChecked={this.state.isMeatCheckboxChecked}
           updateMeatCheckboxChecked={() => this.updateMeatCheckboxChecked()}
+          isCheeseCheckboxChecked={this.state.isCheeseCheckboxChecked}
+          updateCheeseCheckboxChecked={()=>this.updateCheeseCheckboxChecked()}
         >
         </SideBar>
   

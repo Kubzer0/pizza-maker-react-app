@@ -14,13 +14,15 @@ const SideBar = (props) => {
                 label="Open menu"
                 onClick={props.toggleDrawerState}
             />
-            <Drawer width={200} openSecondary={true} open={props.isDrawerOpen} >
-                <AppBar title="AppBar" />
-                    <SideBarComponents
-                        isMeatCheckboxChecked={props.isMeatCheckboxChecked}
-                        updateMeatCheckboxChecked={() => props.updateMeatCheckboxChecked()}
-                    >
-                    </SideBarComponents>
+            <Drawer width={250} openSecondary={true} open={props.isDrawerOpen} >
+                <AppBar title="Pizza Creator" />
+                <SideBarComponents
+                    isMeatCheckboxChecked={props.isMeatCheckboxChecked}
+                    updateMeatCheckboxChecked={() => props.updateMeatCheckboxChecked()}
+                    isCheeseCheckboxChecked={props.isCheeseCheckboxChecked}
+                    updateCheeseCheckboxChecked={() => props.updateCheeseCheckboxChecked()}
+                >
+                </SideBarComponents>
             </Drawer>
         </div>
     )

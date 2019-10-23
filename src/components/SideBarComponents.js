@@ -22,6 +22,15 @@ const SideBarComponents = (props) => {
                     style={styles.checkbox}
                 />
             </MenuItem>
+            <MenuItem>
+                <Checkbox
+                    label="Cheese components"
+                    checked={props.isCheeseCheckboxChecked}
+                    onCheck={() => props.updateCheeseCheckboxChecked()}
+                    style={styles.checkbox}
+                />
+            </MenuItem>
+            
         </div>
     )
 }
