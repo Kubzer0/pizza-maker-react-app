@@ -8,7 +8,7 @@ const SideBar = (props)=> {
         return (
             <div>
                 <RaisedButton
-                    label="Toggle Drawer"
+                    label="Open menu"
                     onClick={props.toggleDrawerState}
                 />
                 <Drawer width={200} openSecondary={true} open={props.isDrawerOpen} >
