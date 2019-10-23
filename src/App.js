@@ -1,7 +1,5 @@
 import React from 'react'
-import MenuItem from 'material-ui/MenuItem'
 import SideBar from './components/SideBar'
-import SideBarComponents from './components/SideBarComponents'
 
 class App extends React.Component {
 
@@ -29,14 +27,11 @@ class App extends React.Component {
         <SideBar
           isDrawerOpen={this.state.isDrawerOpen}
           toggleDrawerState={this.toggleDrawerState}
+          isMeatCheckboxChecked={this.state.isMeatCheckboxChecked}
+          updateMeatCheckboxChecked={() => this.updateMeatCheckboxChecked()}
         >
-            
         </SideBar>
-        <SideBarComponents
-              isMeatCheckboxChecked={this.state.isMeatCheckboxChecked}
-              updateMeatCheckboxChecked={() => this.updateMeatCheckboxChecked()}
-            >
-            </SideBarComponents>
+  
       </div>
     )
   }
