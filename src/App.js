@@ -12,7 +12,7 @@ class App extends React.Component {
     isCheeseCheckboxChecked: false
   }
 
-  updateMeatCheckboxChecked= ()=> {
+  updateMeatCheckboxChecked = () => {
     this.setState((oldState) => {
       return {
         isMeatCheckboxChecked: !oldState.isMeatCheckboxChecked,
@@ -20,7 +20,7 @@ class App extends React.Component {
     })
   }
 
-  updateCheeseCheckboxChecked= ()=> {
+  updateCheeseCheckboxChecked = () => {
     this.setState((oldState) => {
       return {
         isCheeseCheckboxChecked: !oldState.isCheeseCheckboxChecked,
@@ -28,7 +28,21 @@ class App extends React.Component {
     })
   }
 
-  
+  /*
+  @TODO rewrite to state, figure out what to do when boolean values are falsy(checkbox dependent)
+  makeRandomPizza = () => {
+    const meatyComponentsArrayLength = this.state.meatPizzaComponents.length
+    const cheesyComponentsArrayLength= this.state.cheesyPizzaComponents.length
+    if (this.state.isMeatCheckboxChecked){
+     const randomMeatyComponentIndex = Math.floor((Math.random()*meatyComponentsArrayLength))
+    }
+    if (this.state.isCheeseCheckboxChecked){
+      const randomCheeseComponentIndex = Math.floor((Math.random()*cheesyComponentsArrayLength))
+    }
+
+   } */
+
+
 
   toggleDrawerState = () => this.setState({ isDrawerOpen: !this.state.isDrawerOpen })
 
@@ -41,10 +55,10 @@ class App extends React.Component {
           isMeatCheckboxChecked={this.state.isMeatCheckboxChecked}
           updateMeatCheckboxChecked={() => this.updateMeatCheckboxChecked()}
           isCheeseCheckboxChecked={this.state.isCheeseCheckboxChecked}
-          updateCheeseCheckboxChecked={()=>this.updateCheeseCheckboxChecked()}
+          updateCheeseCheckboxChecked={() => this.updateCheeseCheckboxChecked()}
         >
         </SideBar>
-  
+
       </div>
     )
   }
