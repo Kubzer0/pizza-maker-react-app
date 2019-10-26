@@ -1,6 +1,6 @@
 import React from 'react'
+import RaisedButton from 'material-ui/RaisedButton'
 import SideBar from './components/SideBar'
-
 class App extends React.Component {
 
   state = {
@@ -9,7 +9,11 @@ class App extends React.Component {
     cheesyPizzaComponents: ['mozzarella', 'vegan cheese', 'cheddar'],
     veggiePizzaComponents: ['tomatoe', 'broccolli', 'basil'],
     isMeatCheckboxChecked: false,
-    isCheeseCheckboxChecked: false
+    isCheeseCheckboxChecked: false,
+    meatyComponentsArrayLength: null,
+    cheesyComponentsArrayLength: null,
+    randomMeatyComponentIndex: 0,
+    randomCheeseComponentIndex: 0
   }
 
   updateMeatCheckboxChecked = () => {
@@ -28,27 +32,28 @@ class App extends React.Component {
     })
   }
 
-  /*
-  @TODO rewrite to state, figure out what to do when boolean values are falsy(checkbox dependent)
   makeRandomPizza = () => {
-    const meatyComponentsArrayLength = this.state.meatPizzaComponents.length
-    const cheesyComponentsArrayLength= this.state.cheesyPizzaComponents.length
-    if (this.state.isMeatCheckboxChecked){
-     const randomMeatyComponentIndex = Math.floor((Math.random()*meatyComponentsArrayLength))
+    this.setState({ meatyComponentsArrayLength: this.state.meatPizzaComponents.length })
+    this.setState({ cheesyComponentsArrayLength: this.state.cheesyPizzaComponents.length })
+    if (this.state.isMeatCheckboxChecked) {
+      this.setState({ randomMeatyComponentIndex: Math.floor((Math.random() * this.state.meatyComponentsArrayLength)) })
     }
-    if (this.state.isCheeseCheckboxChecked){
-      const randomCheeseComponentIndex = Math.floor((Math.random()*cheesyComponentsArrayLength))
+    if (this.state.isCheeseCheckboxChecked) {
+      this.setState({ randomCheeseComponentIndex: Math.floor((Math.random() * this.state.cheesyComponentsArrayLength)) })
     }
-
-   } */
-
-
+  }
 
   toggleDrawerState = () => this.setState({ isDrawerOpen: !this.state.isDrawerOpen })
 
   render() {
     return (
       <div>
+        <RaisedButton
+          label="Make a random pizza"
+          onClick={this.makeRandomPizza}
+          primary={true}
+          fullWidth={true}
+        />
         <SideBar
           isDrawerOpen={this.state.isDrawerOpen}
           toggleDrawerState={this.toggleDrawerState}
