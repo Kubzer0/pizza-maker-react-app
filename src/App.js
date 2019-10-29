@@ -63,6 +63,16 @@ class App extends React.Component {
           updateCheeseCheckboxChecked={() => this.updateCheeseCheckboxChecked()}
         >
         </SideBar>
+        
+        {this.state.isMeatCheckboxChecked ? 
+        <p>{this.state.meatPizzaComponents[this.state.randomMeatyComponentIndex]}</p>
+        :
+        null}
+        
+        {this.state.isCheeseCheckboxChecked ? 
+        <p>{this.state.cheesyPizzaComponents[this.state.randomCheeseComponentIndex]}</p>
+        :
+        null}
 
       </div>
     )
